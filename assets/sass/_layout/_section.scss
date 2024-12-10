@@ -45,21 +45,53 @@
 // Section header area end here ***
 
 //  area start here ***
+.section-area {
+	position: relative;
+	z-index: 1;
+}
 .rectangle {
+	&-area {
+		position: absolute;
+		z-index: -1;
+		width: 160px;
+		height: 160px;
+		bottom: 0;
+		left: 0;
+	}
 	&__item {
-		@include radius(70px, 70px, 70px);
-		border-radius: 0;
+		width: 80px;
+		height: 80px;
 		background-color: red;
 		width: 0;
+		transition: all 0.3s ease-in-out 0.2s;
+		position: absolute;
+		bottom: 80px;
+		left: 0;
 		&.animated {
-			width: 70px;
+			width: 80px;
 		}
 		&-dark {
-			@extend .rectangle__item;
+			width: 80px;
+			height: 0px;
 			background-color: var(--black);
-			width: 0;
+			transition: all 0.3s ease-in-out 0.5s;
+			position: absolute;
+			top: 80px;
+			left: 80px;
 			&.animated {
-				width: 70px;
+				height: 80px;
+			}
+		}
+		&-green {
+			width: 0px;
+			height: 80px;
+			background-color: green;
+			transition: all 0.3s ease-in-out 0.8s;
+			position: absolute;
+			bottom: -80px;
+			right: 80px;
+			&.animated {
+				width: 80px;
 			}
 		}
 	}
